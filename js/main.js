@@ -4,6 +4,18 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Planning Banner Close Functionality
+    const planningBanner = document.querySelector('.planning-banner');
+    const closeBtn = document.querySelector('.planning-banner .close-btn');
+    
+    if (closeBtn && planningBanner) {
+        closeBtn.addEventListener('click', () => {
+            planningBanner.classList.add('closed');
+            // Update hero margin when banner is closed
+            document.querySelector('.hero').style.marginTop = '70px';
+        });
+    }
+
     // Mobile Navigation Toggle
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');

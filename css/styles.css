@@ -626,19 +626,152 @@ footer {
     color: white;
     padding: 0.75rem 0;
     text-align: center;
-    margin-top: 70px; /* To account for fixed navbar */
+    position: fixed;
+    width: 100%;
+    top: 70px; /* Below fixed navbar */
+    left: 0;
+    z-index: 999;
+    transform: translateY(0); /* Ensure visible by default */
+    transition: transform 0.3s ease;
+}
+
+.planning-banner.closed {
+    transform: translateY(-100%);
+}
+
+.planning-banner .container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .planning-banner p {
     margin-bottom: 0;
     font-size: 0.95rem;
+    padding-right: 30px; /* Space for close button */
 }
 
 .planning-banner i {
     margin-right: 0.5rem;
 }
 
+.planning-banner .close-btn {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 1.2rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.planning-banner .close-btn:hover {
+    opacity: 1;
+}
+
 /* Adjust hero section to account for planning banner */
 .hero {
-    margin-top: 0;
+    margin-top: 120px; /* Account for navbar + banner */
+    min-height: calc(100vh - 120px);
+}
+
+/* Improved Mobile Responsiveness */
+@media (max-width: 992px) {
+    .container {
+        width: 95%;
+    }
+    
+    .focus-card, .involvement-card {
+        padding: 1.2rem;
+    }
+    
+    .contact-content {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        margin-top: 110px;
+        min-height: calc(100vh - 110px);
+        padding: 2rem 0;
+    }
+    
+    .hero-content {
+        padding: 0 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    section {
+        padding: 3rem 0;
+    }
+    
+    .about-content, .why-content {
+        gap: 1.5rem;
+    }
+    
+    .focus-grid, .involvement-grid {
+        gap: 1.5rem;
+    }
+    
+    .footer-content {
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .footer-image {
+        margin: 1rem auto;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+    
+    .planning-banner p {
+        font-size: 0.85rem;
+        padding-right: 25px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        width: 100%;
+        padding: 0 1rem;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    .focus-card, .involvement-card {
+        padding: 1rem;
+    }
+    
+    .contact-form {
+        padding: 1.5rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 0.6rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
 } 
