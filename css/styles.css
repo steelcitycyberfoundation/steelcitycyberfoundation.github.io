@@ -552,6 +552,23 @@ footer {
     opacity: 0.8;
 }
 
+.fiscal-note {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+    color: #8a8a8a;
+}
+
+.fiscal-note a {
+    color: #516982;
+    text-decoration: none;
+}
+
+.fiscal-note a:hover {
+    text-decoration: underline;
+}
+
 /* Responsive Styles */
 @media (max-width: 992px) {
     h1 {
@@ -629,8 +646,13 @@ footer {
     }
     
     .planning-banner {
-        top: 60px;
-        padding: 0.5rem 0;
+        position: sticky;
+        top: 0;
+        background-color: #f8f8f8;
+        z-index: 10;
+        padding: 10px 0;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .planning-banner p {
@@ -725,9 +747,8 @@ footer {
 }
 
 .planning-banner .container {
-    position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -828,9 +849,12 @@ footer {
         justify-content: center;
     }
     
+    .planning-banner {
+        padding: 8px 0;
+    }
+
     .planning-banner p {
-        font-size: 0.85rem;
-        padding-right: 25px;
+        font-size: 14px;
     }
 }
 

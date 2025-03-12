@@ -63,33 +63,60 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.reset();
         
         contactForm.addEventListener('submit', function(e) {
-            // We don't prevent default here since we want the form to submit to Formspree
-            
+            // Prevent form submission only if form is invalid
+            e.preventDefault();
+
             // Show a loading state
             const submitButton = contactForm.querySelector('button[type="submit"]');
             const originalText = submitButton.textContent;
             submitButton.textContent = 'Sending...';
             submitButton.disabled = true;
-            
-            // We'll handle the success message when the form returns
-            // Formspree will redirect back to the page after submission
-            
-            // Check if this is a return from Formspree with success
-            if (window.location.search.includes('success=true')) {
-                contactForm.innerHTML = `
-                    <div class="success-message">
-                        <i class="fas fa-check-circle"></i>
-                        <h3>Thank you for your message!</h3>
-                        <p>We'll get back to you as soon as possible.</p>
-                    </div>
-                `;
-                
-                // Remove the query parameter from the URL
-                const url = new URL(window.location);
-                url.searchParams.delete('success');
-                window.history.replaceState({}, '', url);
+
+            // Form Validation
+            const email = contactForm.querySelector('input[type="email"]').value;
+            const message = contactForm.querySelector('textarea').value;
+
+            if (!email || !message) {
+                alert('Please fill out all fields.');
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+                return;
             }
+
+            // Submit form to Formspree
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: new FormData(contactForm),
+            }).then(response => {
+                if (response.ok) {
+                    window.location.href = '?success=true';
+                } else {
+                    alert('Oops! Something went wrong.');
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('Oops! Something went wrong.');
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            });
         });
+
+        // Handle success message
+        if (window.location.search.includes('success=true')) {
+            contactForm.innerHTML = `
+                <div class="success-message">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Thank you for your message!</h3>
+                    <p>We'll get back to you as soon as possible.</p>
+                </div>
+            `;
+            // Remove the query parameter from the URL
+            const url = new URL(window.location);
+            url.searchParams.delete('success');
+            window.history.replaceState({}, '', url);
+        }
     }
 
     // Scroll to top button
@@ -194,4 +221,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addAnimationStyles();
     animateOnScroll();
-}); 
+});
