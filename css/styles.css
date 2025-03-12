@@ -181,7 +181,6 @@ section {
 .logo-img {
     height: 80px;
     width: auto;
-    filter: invert(1) brightness(1.5);
     margin: -5px 0;
 }
 
