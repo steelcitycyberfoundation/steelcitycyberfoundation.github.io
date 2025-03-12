@@ -59,6 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Form submission handling
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
+        // Clear form fields
+        contactForm.reset();
+        
         contactForm.addEventListener('submit', function(e) {
             // We don't prevent default here since we want the form to submit to Formspree
             
