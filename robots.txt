@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://steelcitycyberfoundation.github.io/sitemap.xml 

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Steel City Cyber Foundation</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .error-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-family: var(--heading-font);
+        }
+        
+        .error-message {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--dark-color);
+        }
+        
+        .error-description {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+        
+        .binary-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            opacity: 0.05;
+        }
+        
+        .binary-text {
+            position: absolute;
+            font-family: monospace;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="binary-background" id="binaryBackground"></div>
+    
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-message">Page Not Found</h1>
+        <p class="error-description">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+        <a href="/" class="btn btn-primary">Return to Homepage</a>
+    </div>
+    
+    <script>
+        // Create binary background effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const binaryBackground = document.getElementById('binaryBackground');
+            const characters = '01';
+            const rows = 20;
+            const columns = 40;
+            
+            for (let i = 0; i < rows; i++) {
+                for (let j = 0; j < columns; j++) {
+                    const binaryText = document.createElement('div');
+                    binaryText.className = 'binary-text';
+                    binaryText.style.top = `${i * 5}%`;
+                    binaryText.style.left = `${j * 2.5}%`;
+                    binaryText.textContent = characters.charAt(Math.floor(Math.random() * characters.length));
+                    binaryBackground.appendChild(binaryText);
+                    
+                    // Animate the binary text
+                    setInterval(() => {
+                        binaryText.textContent = characters.charAt(Math.floor(Math.random() * characters.length));
+                    }, 1000 + Math.random() * 4000);
+                }
+            }
+        });
+    </script>
+</body>
+</html> 
