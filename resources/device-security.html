@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lock down your phone, laptop, and home Wi-Fi. Two-factor auth, updates, and the basics that actually matter.">
+    <title>Device Security — Steel City Cyber Foundation</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../images/NBG-logo.png" alt="Steel City Cyber Foundation Logo" class="logo-img">
+                        <span class="logo-text">Steel City Cyber Foundation</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#home">Home</a></li>
+                    <li><a href="../index.html#resources">Resources</a></li>
+                    <li><a href="../index.html#get-involved">Get Involved</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="guide">
+        <div class="container">
+            <article class="guide-content">
+                <p class="guide-breadcrumb"><a href="../index.html#resources">← All Resources</a></p>
+                <h1>Device Security</h1>
+                <p class="guide-byline">By Elias Z. · Steel City Cyber Foundation</p>
+
+                <p>You don't need to be a security pro to lock down your devices. Four things cover 90% of the risk: updates, two-factor auth, a lock screen, and a sane home network.</p>
+
+                <h2>1. Turn on automatic updates</h2>
+                <p>Updates aren't Microsoft and Apple being annoying. They patch holes that attackers actively use. When a vulnerability is found, it's public knowledge — and criminals race to exploit it on devices that haven't updated.</p>
+                <p>Your phone and computer both have an "automatic updates" setting. Turn it on. That's the entire step. If a notification says "Restart to finish updating," just do it. It takes two minutes.</p>
+
+                <h2>2. Two-factor authentication (2FA)</h2>
+                <p>2FA means that even if someone gets your password, they still can't get in — because they'd need a second thing: a code from your phone.</p>
+                <p>Turn it on for the accounts that matter most, in this order:</p>
+                <ol>
+                    <li>Your email (this is the master key — it's how every other account resets its password)</li>
+                    <li>Your bank</li>
+                    <li>Social media</li>
+                </ol>
+                <p>Use an <strong>authenticator app</strong> (Google Authenticator, Microsoft Authenticator, or the built-in one on your phone) instead of text message codes. Texts can be intercepted by someone who steals your SIM. An app is a code only you can see.</p>
+
+                <h2>3. Lock screen and find-my-device</h2>
+                <p>Set a PIN or password that locks your phone after a minute or two of no use. Face ID and fingerprint unlock are fine — they're the lock, not the only lock.</p>
+                <p>Turn on Find My iPhone / Find My Device. If your phone gets stolen, you can lock it remotely, wipe it, or track it. Most people set this up once and forget it — and it's the reason stolen phones are useless to thieves.</p>
+
+                <h2>4. Home Wi-Fi</h2>
+                <p>Your router is the front door to every device in your house. Most people never touch the settings.</p>
+                <ul>
+                    <li><strong>Change the router password</strong> from the default. "admin/admin" is on every hacker's list.</li>
+                    <li><strong>Use WPA2 or WPA3 encryption</strong> (it's a dropdown in your router settings).</li>
+                    <li><strong>Make a separate "guest" network</strong> for smart home stuff and visitors. That way, a compromised smart bulb can't reach your laptop.</li>
+                </ul>
+                <p>To reach your router settings, open a browser and go to something like <code>192.168.1.1</code> or <code>192.168.0.1</code> — check the sticker on the router for the exact address and default login.</p>
+
+                <h2>Quick checklist</h2>
+                <div class="guide-checklist">
+                    <ul>
+                        <li>Automatic updates on for phone and computer</li>
+                        <li>2FA on email, bank, and social media — using an app, not texts</li>
+                        <li>Screen locks after inactivity, find-my-device enabled</li>
+                        <li>Router password changed, WPA2/WPA3 enabled</li>
+                        <li>Guest Wi-Fi for smart home devices</li>
+                    </ul>
+                </div>
+
+                <p>Do these once and you're ahead of most people — and way ahead of most attackers' targets.</p>
+            </article>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">Steel City Cyber Foundation</span>
+                    <p>Free cybersecurity education for Pittsburgh and beyond.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#resources">Resources</a></li>
+                        <li><a href="../index.html#get-involved">Get Involved</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Steel City Cyber Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

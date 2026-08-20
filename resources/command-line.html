@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your first steps in the terminal, without breaking anything. A beginner command line guide from Steel City Cyber Foundation.">
+    <title>Command Line Intro — Steel City Cyber Foundation</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../images/NBG-logo.png" alt="Steel City Cyber Foundation Logo" class="logo-img">
+                        <span class="logo-text">Steel City Cyber Foundation</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#home">Home</a></li>
+                    <li><a href="../index.html#resources">Resources</a></li>
+                    <li><a href="../index.html#get-involved">Get Involved</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="guide">
+        <div class="container">
+            <article class="guide-content">
+                <p class="guide-breadcrumb"><a href="../index.html#resources">← All Resources</a></p>
+                <h1>Command Line Intro</h1>
+                <p class="guide-byline">By Elias Z. · Steel City Cyber Foundation</p>
+
+                <p>The terminal looks scary because it's just text. But it's really just a faster way to talk to your computer. Every security professional uses it daily — and it's a lot less dangerous than it looks, as long as you know the rules.</p>
+
+                <h2>How to open it</h2>
+                <ul>
+                    <li><strong>Mac:</strong> open Terminal (in Applications → Utilities)</li>
+                    <li><strong>Windows:</strong> open PowerShell, or better, install WSL for a real Linux terminal</li>
+                    <li><strong>Linux:</strong> Ctrl+Alt+T on most distros</li>
+                </ul>
+                <p>You'll see a prompt like <code>elias@macbook ~ %</code>. That means "ready for your command."</p>
+
+                <h2>Your first five commands</h2>
+                <p>These are safe. Run them. Nothing bad happens.</p>
+                <pre><code>pwd          # where am I? (print working directory)
+ls           # what's in this folder?
+cd Documents # go into the Documents folder
+mkdir test   # make a new folder called "test"
+cat file.txt # print the contents of file.txt</code></pre>
+                <p>That's it. You now know navigation. <code>cd</code> is "change directory," and that's most of what people use the terminal for.</p>
+
+                <h2>The one dangerous command</h2>
+                <p>Here's the rule that keeps you safe: <strong>never run a command you don't understand.</strong></p>
+                <p>There's a famous joke about <code>rm -rf /</code> — it deletes your entire system. It's a joke because it's catastrophic and irreversible. The point isn't to memorize which commands are dangerous. It's to get in the habit of checking before you run anything that came from a random website.</p>
+                <p>If you're about to run a command you found online, ask: what does this do? If you can't tell, don't run it. There are websites (like <a href="https://explainshell.com" target="_blank" rel="noopener">explainshell.com</a>) that break down exactly what a command does — paste it in first.</p>
+
+                <h2>How to learn more without breaking things</h2>
+                <ul>
+                    <li><strong><code>man command</code></strong> — the manual. <code>man ls</code> shows everything <code>ls</code> can do. Press <code>q</code> to exit.</li>
+                    <li><strong>Make a throwaway folder</strong> to practice in. <code>mkdir practice &amp;&amp; cd practice</code> — break things in there all you want.</li>
+                    <li><strong>Tab completion:</strong> type the first letters of a file name and press Tab. The terminal fills in the rest. Lifesaver.</li>
+                    <li><strong>Up arrow</strong> brings back your last command. Edit and rerun it.</li>
+                </ul>
+
+                <h2>Why this matters for security</h2>
+                <p>Lots of security work happens in the terminal — scanning networks, reading logs, checking configs. And on the defense side, most of the "hacking" you see in movies is really just people using the command line. If you want to go further in cybersecurity, this is the tool you'll live in.</p>
+                <p>If you want a structured, fun way to practice, try <a href="https://overthewire.org/wargames/bandit/" target="_blank" rel="noopener">OverTheWire Bandit</a> — a free game that teaches Linux commands level by level. It's how a lot of people (including us) got started.</p>
+
+                <h2>Quick checklist</h2>
+                <div class="guide-checklist">
+                    <ul>
+                        <li>Open the terminal and try <code>pwd</code>, <code>ls</code>, <code>cd</code></li>
+                        <li>Make a practice folder and play around in it</li>
+                        <li>Never run commands you don't understand</li>
+                        <li>Use <code>man</code> and explainshell.com to check before running</li>
+                        <li>Try OverTheWire Bandit when you're ready to level up</li>
+                    </ul>
+                </div>
+
+                <p>You're not going to break your computer by typing <code>ls</code>. Start there.</p>
+            </article>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">Steel City Cyber Foundation</span>
+                    <p>Free cybersecurity education for Pittsburgh and beyond.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#resources">Resources</a></li>
+                        <li><a href="../index.html#get-involved">Get Involved</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Steel City Cyber Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

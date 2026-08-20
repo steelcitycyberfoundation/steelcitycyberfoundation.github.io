@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IP addresses, DNS, and ports explained like you're five. A beginner networking guide from Steel City Cyber Foundation.">
+    <title>Networking Basics — Steel City Cyber Foundation</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../images/NBG-logo.png" alt="Steel City Cyber Foundation Logo" class="logo-img">
+                        <span class="logo-text">Steel City Cyber Foundation</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#home">Home</a></li>
+                    <li><a href="../index.html#resources">Resources</a></li>
+                    <li><a href="../index.html#get-involved">Get Involved</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="guide">
+        <div class="container">
+            <article class="guide-content">
+                <p class="guide-breadcrumb"><a href="../index.html#resources">← All Resources</a></p>
+                <h1>Networking Basics</h1>
+                <p class="guide-byline">By Elias Z. · Steel City Cyber Foundation</p>
+
+                <p>You don't need to be a network engineer to understand how the internet works. Three ideas cover most of it: IP addresses, DNS, and ports.</p>
+
+                <h2>IP addresses: your device's mailing address</h2>
+                <p>Every device on a network has an IP address — a number that says where it lives, like a mailing address. When you send a request, it gets addressed and routed back to you.</p>
+                <p>An address looks like <code>192.168.1.25</code> or <code>2606:4700:4700::1111</code>. The first kind (IPv4) is running out of numbers, so we're slowly moving to the second kind (IPv6), which has more numbers than atoms in the universe. Fun fact, don't worry about it.</p>
+                <p>You have two relevant addresses:</p>
+                <ul>
+                    <li><strong>Your public IP</strong> — your internet-facing address, shared by everyone on your home network. Websites see this.</li>
+                    <li><strong>Your local IP</strong> — your device's address inside your home, like <code>192.168.1.x</code>. Other devices on your Wi-Fi see this.</li>
+                </ul>
+                <p>To see your local IP on a Mac: <code>ifconfig</code> in Terminal. On Windows: <code>ipconfig</code> in Command Prompt. Or just look in your Wi-Fi settings — most phones show it.</p>
+
+                <h2>DNS: the phonebook of the internet</h2>
+                <p>Nobody memorizes IP addresses. You type <code>google.com</code>, and behind the scenes your computer asks a DNS server, "what's the address for google.com?" and gets back an IP like <code>142.250.190.78</code>.</p>
+                <p>DNS is just a phonebook. That's the whole idea.</p>
+                <p>Why it matters for security: if someone can tamper with that lookup, they can send you to a fake website that looks exactly like the real one — even though you typed the right address. This is called DNS hijacking, and it's why your browser now shows "Not secure" warnings and why using HTTPS matters.</p>
+
+                <h2>Ports: doors on a house</h2>
+                <p>An IP address gets you to the right building. A port gets you to the right door. When your computer talks to a server, it specifies a port number to say which service it wants.</p>
+                <ul>
+                    <li>Port <strong>80</strong> — plain web (HTTP)</li>
+                    <li>Port <strong>443</strong> — secure web (HTTPS)</li>
+                    <li>Port <strong>25</strong> — email sending</li>
+                    <li>Port <strong>22</strong> — SSH (secure remote login)</li>
+                </ul>
+                <p>You've actually used this without knowing: when you type a URL, the browser assumes port 443. When you connect to a Minecraft server, you type <code>server.example.com:25565</code> — that <code>:25565</code> is the port.</p>
+
+                <h2>Why attackers care about this</h2>
+                <p>Every device on the internet is constantly scanned for open ports — automated bots checking thousands of addresses a second, looking for services they can break into. That's why the security advice "don't open random ports on your router" exists. If you don't need a port open, keep it closed.</p>
+
+                <h2>Quick checklist</h2>
+                <div class="guide-checklist">
+                    <ul>
+                        <li>Know the difference between your public and local IP</li>
+                        <li>Understand that DNS turns names into addresses (like a phonebook)</li>
+                        <li>Know that ports are doors, and 443 is secure web</li>
+                        <li>Don't open ports on your router unless you know why</li>
+                    </ul>
+                </div>
+
+                <p>That's networking in a nutshell. The rest is details — and you can learn the details when you actually need them.</p>
+            </article>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">Steel City Cyber Foundation</span>
+                    <p>Free cybersecurity education for Pittsburgh and beyond.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#resources">Resources</a></li>
+                        <li><a href="../index.html#get-involved">Get Involved</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Steel City Cyber Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

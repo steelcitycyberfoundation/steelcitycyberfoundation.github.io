@@ -9,6 +9,7 @@ This is a static website built with HTML, CSS, and JavaScript, designed to be ho
 - Responsive design that works on all devices
 - Modern, clean UI with cybersecurity-themed elements
 - Sections for the organization's mission, focus areas, and ways to get involved
+- Free beginner resources (7 guides in `resources/`)
 - Contact form for inquiries
 - Social media integration
 
@@ -41,6 +42,7 @@ This website is automatically deployed to GitHub Pages when changes are pushed t
 - `index.html` - Main HTML file
 - `css/styles.css` - Main stylesheet
 - `js/main.js` - JavaScript functionality
+- `resources/` - Beginner guide pages
 - `images/` - Directory containing all website images
 
 ## Contributing
@@ -61,4 +63,4 @@ For questions about the website or the organization, please contact:
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+This project is licensed under the MIT License - see the LICENSE file for details.
