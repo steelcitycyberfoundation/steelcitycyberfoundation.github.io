@@ -453,6 +453,12 @@ section {
     margin-bottom: 1.5rem;
 }
 
+.form-note {
+    margin-top: 1rem;
+    text-align: center;
+    color: var(--text-light);
+}
+
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;

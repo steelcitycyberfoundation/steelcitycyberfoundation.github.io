@@ -63,60 +63,29 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.reset();
         
         contactForm.addEventListener('submit', function(e) {
-            // Prevent form submission only if form is invalid
             e.preventDefault();
 
-            // Show a loading state
-            const submitButton = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-            submitButton.textContent = 'Sending...';
-            submitButton.disabled = true;
-
             // Form Validation
+            const name = contactForm.querySelector('input[name="name"]').value;
             const email = contactForm.querySelector('input[type="email"]').value;
+            const subject = contactForm.querySelector('input[name="subject"]').value;
             const message = contactForm.querySelector('textarea').value;
 
-            if (!email || !message) {
+            if (!name || !email || !subject || !message) {
                 alert('Please fill out all fields.');
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
                 return;
             }
 
-            // Submit form to Formspree
-            fetch(contactForm.action, {
-                method: 'POST',
-                body: new FormData(contactForm),
-            }).then(response => {
-                if (response.ok) {
-                    window.location.href = '?success=true';
-                } else {
-                    alert('Oops! Something went wrong.');
-                    submitButton.textContent = originalText;
-                    submitButton.disabled = false;
-                }
-            }).catch(error => {
-                console.error('Error:', error);
-                alert('Oops! Something went wrong.');
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-            });
-        });
+            // Build a mailto: link with the form contents pre-filled
+            const recipient = 'steelcitycyberfoundation@gmail.com';
+            const mailSubject = '[Website] ' + subject;
+            const body = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + message;
+            const mailto = 'mailto:' + recipient +
+                '?subject=' + encodeURIComponent(mailSubject) +
+                '&body=' + encodeURIComponent(body);
 
-        // Handle success message
-        if (window.location.search.includes('success=true')) {
-            contactForm.innerHTML = `
-                <div class="success-message">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>Thank you for your message!</h3>
-                    <p>We'll get back to you as soon as possible.</p>
-                </div>
-            `;
-            // Remove the query parameter from the URL
-            const url = new URL(window.location);
-            url.searchParams.delete('success');
-            window.history.replaceState({}, '', url);
-        }
+            window.location.href = mailto;
+        });
     }
 
     // Scroll to top button
