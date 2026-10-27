@@ -4,6 +4,9 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const scrollBehavior = reduceMotion ? 'auto' : 'smooth';
+
     // Planning Banner Close Functionality
     const planningBanner = document.querySelector('.planning-banner');
     const closeBtn = document.querySelector('.planning-banner .close-btn');
@@ -22,8 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
+            const open = navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active', open);
+            hamburger.setAttribute('aria-expanded', String(open));
         });
 
         // Close mobile menu when clicking on a nav link
@@ -31,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
             });
         });
     }
@@ -50,8 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 window.scrollTo({
                     top: targetPosition,
-                    behavior: 'smooth'
+                    behavior: scrollBehavior
                 });
+                history.pushState(null, '', targetId);
+                if (!targetElement.hasAttribute('tabindex')) targetElement.setAttribute('tabindex', '-1');
+                targetElement.focus({ preventScroll: true });
             }
         });
     });
@@ -91,8 +99,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Scroll to top button
     const createScrollTopButton = () => {
         const button = document.createElement('button');
-        button.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        button.innerHTML = '<i class="fas fa-arrow-up" aria-hidden="true"></i>';
         button.className = 'scroll-top-btn';
+        button.type = 'button';
+        button.setAttribute('aria-label', 'Back to top');
         button.style.display = 'none';
         document.body.appendChild(button);
 
@@ -107,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
-                behavior: 'smooth'
+                behavior: scrollBehavior
             });
         });
     };
@@ -189,5 +199,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     addAnimationStyles();
-    animateOnScroll();
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+        document.querySelectorAll('.focus-card, .involvement-card, .about-image, .why-image').forEach(el => el.classList.add('animate'));
+    } else {
+        animateOnScroll();
+    }
 });

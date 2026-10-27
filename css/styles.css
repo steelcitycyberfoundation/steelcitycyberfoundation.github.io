@@ -13,6 +13,7 @@
     --dark-color: #1a2a3a; /* Very dark blue */
     --text-color: #2d3748; /* New - darker slate for better readability */
     --border-color: #e2e8f0; /* New - subtle border color */
+    --text-light: #4a5568;
     --body-font: 'Roboto', sans-serif;
     --heading-font: 'Source Code Pro', monospace;
     --transition: all 0.3s ease;
@@ -217,6 +218,9 @@ section {
 .hamburger {
     display: none;
     cursor: pointer;
+    background: none;
+    border: 0;
+    padding: 6px;
 }
 
 .bar {
@@ -477,9 +481,9 @@ section {
 
 .form-group input:focus,
 .form-group textarea:focus {
-    outline: none;
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 1px;
     border-color: var(--secondary-color);
-    box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.1);
 }
 
 /* Footer */
@@ -534,7 +538,7 @@ footer {
 }
 
 .footer-links a:hover {
-    color: var(--secondary-color);
+    color: #9fb8dd;
 }
 
 .social-icons {
@@ -571,26 +575,9 @@ footer {
     opacity: 0.8;
 }
 
-.fiscal-note {
-    font-size: 14px;
-    font-weight: bold;
-    margin-top: 10px;
-    text-align: center;
-    color: #8a8a8a;
-}
-
-.fiscal-note a {
-    color: #516982;
-    text-decoration: none;
-}
-
-.fiscal-note a:hover {
-    text-decoration: underline;
-}
-
 /* Guide pages */
 .guide {
-    padding: 3rem 0 4rem;
+    padding: calc(70px + 2rem) 0 4rem;
 }
 
 .guide-breadcrumb {
@@ -853,7 +840,7 @@ footer {
 
 /* Planning Phase Banner */
 .planning-banner {
-    background-color: var(--accent-color);
+    background-color: #5a6577;
     color: white;
     padding: 0.75rem 0;
     text-align: center;
@@ -1009,4 +996,83 @@ footer {
     .footer-content {
         grid-template-columns: 1fr;
     }
-} 
+}
+
+/* Accessibility */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 2000;
+    padding: 0.6rem 1rem;
+    background: #fff;
+    color: var(--dark-color);
+    border-radius: 0 0 6px 6px;
+}
+
+.skip-link:focus {
+    left: 1rem;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+.navbar a:focus-visible,
+.navbar button:focus-visible,
+.hero a:focus-visible,
+.planning-banner button:focus-visible,
+footer a:focus-visible,
+.scroll-top-btn:focus-visible {
+    outline-color: #fff;
+}
+
+[tabindex="-1"]:focus {
+    outline: none;
+}
+
+.hero .btn-secondary {
+    color: #fff;
+    border-color: #fff;
+}
+
+.hero .btn-secondary:hover {
+    background-color: #fff;
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .planning-banner {
+        top: 60px;
+    }
+
+    .guide {
+        padding-top: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .planning-banner {
+        top: 50px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .focus-image img:hover {
+        transform: none;
+    }
+}
