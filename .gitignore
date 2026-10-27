@@ -39,3 +39,6 @@ build/
 .agents/
 .claude/
 skills-lock.json
+
+# Local agent state
+.opencode/

@@ -1,6 +1,6 @@
 # Steel City Cyber Foundation Website
 
-This is the official website for Steel City Cyber Foundation, a Pittsburgh-based nonprofit dedicated to making cybersecurity education accessible to youth and underserved communities.
+This is the website for Steel City Cyber Foundation, a student-led project in Pittsburgh working to make cybersecurity education accessible to youth and underserved communities. It is in the planning phase. It is not yet a registered nonprofit and does not currently have a fiscal sponsor.
 
 ## About the Website
 
@@ -10,7 +10,7 @@ This is a static website built with HTML, CSS, and JavaScript, designed to be ho
 - Modern, clean UI with cybersecurity-themed elements
 - Sections for the organization's mission, focus areas, and ways to get involved
 - Free beginner resources (7 guides in `resources/`)
-- Contact form for inquiries
+- Contact form that opens the visitor's email app (no backend)
 - Social media integration
 
 ## Local Development
@@ -27,7 +27,10 @@ To work on this website locally:
    cd steelcitycyberfoundation.github.io
    ```
 
-3. Open the `index.html` file in your browser to view the website.
+3. Serve the folder and open http://localhost:8000/ (the 404 page uses root-relative paths, so a server works better than opening files directly):
+   ```
+   python3 -m http.server 8000
+   ```
 
 4. Make changes to the HTML, CSS, or JavaScript files as needed.
 
@@ -40,10 +43,13 @@ This website is automatically deployed to GitHub Pages when changes are pushed t
 ## File Structure
 
 - `index.html` - Main HTML file
+- `404.html` - Not-found page served by GitHub Pages
 - `css/styles.css` - Main stylesheet
 - `js/main.js` - JavaScript functionality
 - `resources/` - Beginner guide pages
 - `images/` - Directory containing all website images
+- `favicon-32.png`, `apple-touch-icon.png`, `logo.png` - Icons and the share image
+- `CNAME` - Placeholder only (comments, no domain). The site is served at the github.io address.
 
 ## Contributing
 
